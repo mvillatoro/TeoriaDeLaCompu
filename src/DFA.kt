@@ -3,22 +3,19 @@ class DFA(){
     var states : MutableList<State> = mutableListOf()
     var transitions: MutableList<Transition> = mutableListOf()
 
-    fun addNewState(stateName: String, stateType: String){
-        if(states.isEmpty()){
-            val state = State(stateName,"I")
-            if(!stateExists(state))
-                states.add(state)
-        }
-        else if(stateType == "F"){
-            val state = State(stateName,"F")
-            if(!stateExists(state))
-                states.add(state)
-        }
-        else{
-            val state = State(stateName, "N")
-            if(!stateExists(state))
-                states.add(state)
-        }
+    fun addNewState(stateName: String){
+        var newState: State
+        var stateType: String
+
+        if(states.isEmpty())
+            stateType = "I"
+        else if(true)
+            stateType = "N"
+        else
+            stateType = "F"
+
+        newState = State(stateName, stateType)
+        states.add(newState)
     }
 
     fun addNewTransition(transitionCharacter: String, transitionOrigin: State, transitionDestiny: State){
@@ -40,7 +37,6 @@ class DFA(){
         }
         return false
     }
-
 
     fun transitionExists(transition: Transition): Boolean{
         for(transitionD in transitions){

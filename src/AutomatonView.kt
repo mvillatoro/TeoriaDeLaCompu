@@ -1,21 +1,48 @@
-import javax.swing.JTabbedPane.*
 import java.awt.Toolkit
 import javax.swing.*
-import javax.swing.border.*
 
 fun mainWindow(){
 
-    var frame = JFrame("Automatons in Kotling - Mario V. 21021072")
+    val frame = JFrame("Automatons in Kotling - Mario V. 21021072")
     val screenSize = Toolkit.getDefaultToolkit().screenSize
-    var tabsFrame = JTabbedPane()
+    val tabsFrame = JTabbedPane()
 
-    var dfaPanel = JPanel(false)
-    dfaPanel.setLocation(20,20)
-    dfaPanel.setSize(10,10)
-    dfaPanel.border = BorderFactory.createLoweredBevelBorder()
+    val dfaPanel = JPanel(false)
+    dfaPanel.layout = null
     tabsFrame.addTab("DFA",dfaPanel)
 
+    val dfaDisplay = JPanel(false)
+    dfaDisplay.layout = null
+    dfaDisplay.setBounds(150,10, 610,440)
+    dfaDisplay.border = BorderFactory.createLoweredBevelBorder()
 
+    val newStateButton = JButton("New State")
+    newStateButton.setBounds(10,10,120,30)
+
+    val newFinalStateButton = JButton("Final State")
+    newFinalStateButton.setBounds(10,50,120,30)
+
+    val newTransitionButton = JButton("New Transition")
+    newTransitionButton.setBounds(10,90,120,30)
+
+    val clearButton = JButton("Clear")
+    clearButton.setBounds(10,130,120,30)
+
+    val testStringButton = JButton("Test!")
+    testStringButton.setBounds(560,470,120,30)
+
+    val testStringInput = JCTextField()
+    testStringInput.setBounds(300, 470, 250, 30)
+    testStringInput.placeholder = "Type in the string you'd like to test"
+
+
+    dfaPanel.add(newStateButton)
+    dfaPanel.add(newFinalStateButton)
+    dfaPanel.add(newTransitionButton)
+    dfaPanel.add(clearButton)
+    dfaPanel.add(testStringButton)
+    dfaPanel.add(testStringInput)
+    dfaPanel.add(dfaDisplay)
 
     val width = screenSize.getWidth().toInt()
     val height = screenSize.getHeight().toInt()
